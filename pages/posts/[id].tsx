@@ -3,8 +3,18 @@ import { getAllPostIds, getPostData } from '../../lib/posts';
 import Head from 'next/head';
 import Date from '../../components/date';
 import utilStyles from '../../styles/utils.module.css';
+import { GetStaticProps, GetStaticPaths } from 'next';
 
-export default function Post({ postData }) {
+interface PostProps {
+  postData: {
+    id: string;
+    title: string;
+    date: string;
+    contentHtml?: string;
+  };
+}
+
+export const Post: React.FC<PostProps> = ({ postData }) => {
   return (
     <Layout>
       <Head>
@@ -20,21 +30,23 @@ export default function Post({ postData }) {
       </article>
     </Layout>
   );
-}
+};
 
-export async function getStaticPaths() {
+export const getStaticPaths: GetStaticPaths = async () => {
   const paths = getAllPostIds();
   return {
     paths,
     fallback: false,
   };
-}
+};
 
-export async function getStaticProps({ params }) {
-  const postData = await getPostData(params.id);
+export const getStaticProps: GetStaticProps = async ({ params }) => {
+  const postData = await getPostData(params.id as string);
   return {
     props: {
       postData,
     },
   };
-}
+};
+
+export default Post;
