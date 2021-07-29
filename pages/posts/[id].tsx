@@ -10,7 +10,7 @@ type PostProps = {
     id: string
     title: string
     date: string
-    contentHtml?: string
+    contentHtml: string
   }
 }
 
@@ -41,7 +41,10 @@ export const getStaticPaths: GetStaticPaths = async () => {
 }
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
-  const postData = await getPostData(params.id as string)
+  let postData
+  if (params) {
+    postData = await getPostData(params.id as string)
+  }
   return {
     props: {
       postData,
