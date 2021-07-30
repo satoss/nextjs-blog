@@ -32,7 +32,21 @@ const Layout: React.FC<LayoutProps> = ({ children, home }) => {
         <h1>fe-life</h1>
         <p>フロントエンドエンジニアの技術ブログ</p>
       </header>
-      <main className={styles.main}>{children}</main>
+      <main className={styles.main}>
+        <article className={styles.article}>{children}</article>
+        <div className={styles.sidenav}>
+          <div className={styles.profile}>
+            <h6>プロフィール</h6>
+            <img src="/images/profile.jpeg" alt="プロフィール画像" />
+            <p className={styles.name}>しょうえい</p>
+            <p className={styles.description}>
+              フリーランスエンジニアのしょうえいです。
+              <br />
+              主にフロントエンド周りの技術について備忘録も兼ねて書き留めていく予定です。
+            </p>
+          </div>
+        </div>
+      </main>
       {!home && (
         <div className={styles.backToHome}>
           <Link href="/">
