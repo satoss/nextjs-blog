@@ -1,0 +1,35 @@
+@import '../setting.scss';
+@import '../color.scss';
+
+.list {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+
+  .title {
+    font-size: $font-size-3xl;
+    font-weight: bold;
+
+    :hover {
+      text-decoration: none;
+    }
+  }
+
+  .dates {
+    font-size: $font-size-sm;
+
+    span {
+      display: inline-block;
+
+      img {
+        display: inline-block;
+        margin-right: 4px;
+        vertical-align: middle;
+      }
+    }
+
+    span:first-child {
+      margin-right: 2rem;
+    }
+  }
+}

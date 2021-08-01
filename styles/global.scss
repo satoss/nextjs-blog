@@ -1,3 +1,5 @@
+@import '../styles/color.scss';
+
 html,
 body {
   padding: 0;
@@ -13,6 +15,7 @@ body {
     sans-serif;
   font-size: 18px;
   line-height: 1.6;
+  color: $color-black;
 }
 
 * {
@@ -20,8 +23,9 @@ body {
 }
 
 a {
-  color: #0070f3;
+  color: $color-black;
   text-decoration: none;
+  transition: 0.25s;
 }
 
 a:hover {
