@@ -1,6 +1,6 @@
 import App from 'next/app'
 import type { AppProps, AppContext } from 'next/app'
-import basicAuth from './api/basicAuth'
+import basicAuth from '../lib/basicAuth'
 import '../styles/global.scss'
 import 'normalize.css'
 
