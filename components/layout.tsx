@@ -29,7 +29,11 @@ const Layout: React.FC<LayoutProps> = ({ children, home }) => {
         <meta name="twitter:card" content="summary_large_image" />
       </Head>
       <header className={styles.header}>
-        <h1>fe-life</h1>
+        <Link href="/">
+          <a>
+            <h1>fe-life</h1>
+          </a>
+        </Link>
         <p>フロントエンドエンジニアの技術ブログ</p>
       </header>
       <main className={styles.main}>
@@ -47,13 +51,6 @@ const Layout: React.FC<LayoutProps> = ({ children, home }) => {
           </div>
         </div>
       </main>
-      {!home && (
-        <div className={styles.backToHome}>
-          <Link href="/">
-            <a>← Back to home</a>
-          </Link>
-        </div>
-      )}
       <footer className={styles.footer}>
         <p>© 2021 fe-life.</p>
       </footer>

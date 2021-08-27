@@ -39,7 +39,7 @@ export const Home = ({ blogs }: { blogs: Blogs[] }): JSX.Element => {
         <ul className={styles.list}>
           {blogs.map((blog) => (
             <li className={utilStyles.listItem} key={blog.id}>
-              <Link href={`/${blog.id}`}>
+              <Link href={`/posts/${blog.id}`}>
                 <a className={styles.title}>{blog.title}</a>
               </Link>
               <p className={styles.dates}>

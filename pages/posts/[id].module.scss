@@ -1,0 +1,24 @@
+@import '../../styles/setting.scss';
+
+.heading {
+  margin: 0.8rem 0;
+  font-size: $font-size-4xl;
+}
+
+.dates {
+  font-size: $font-size-sm;
+
+  span {
+    display: inline-block;
+
+    img {
+      display: inline-block;
+      margin-right: 4px;
+      vertical-align: middle;
+    }
+  }
+
+  span:first-child {
+    margin-right: 2rem;
+  }
+}
