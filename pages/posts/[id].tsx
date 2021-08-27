@@ -1,16 +1,20 @@
 import Layout from '../../components/layout'
-import { getAllPostIds, getPostData } from '../../lib/posts'
 import Head from 'next/head'
 import Date from '../../components/date'
-import utilStyles from '../../styles/utils.module.scss'
+import styles from './[id].module.scss'
 import { GetStaticProps, GetStaticPaths } from 'next'
+import { client } from '../../lib/client'
 
 type PostProps = {
   postData: {
     id: string
+    createdAt: string
+    updatedAt: string
+    publishedAt: string
+    revisedAt: string
     title: string
-    date: string
-    contentHtml: string
+    body: string
+    tags: string[]
   }
 }
 
@@ -21,19 +25,47 @@ export const Post: React.FC<PostProps> = ({ postData }) => {
         <title>{postData.title}</title>
       </Head>
       <article>
-        <h1 className={utilStyles.headingXl}>{postData.title}</h1>
-        <div className={utilStyles.lightText}>
-          <Date dateString={postData.date} />
-        </div>
+        <h1 className={styles.heading}>{postData.title}</h1>
+        <p className={styles.dates}>
+          <span>
+            <img src="/images/createdAt.svg" width="16" height="16" />
+            投稿：
+            <Date dateString={postData.createdAt} />
+          </span>
+          <span>
+            <img src="/images/updatedAt.svg" width="14" height="14" />
+            更新：
+            <Date dateString={postData.updatedAt} />
+          </span>
+        </p>
+
         <br />
-        <div dangerouslySetInnerHTML={{ __html: postData.contentHtml }} />
+        <div dangerouslySetInnerHTML={{ __html: postData.body }} />
       </article>
     </Layout>
   )
 }
 
+type PostData = {
+  contents: {
+    id: string
+    createdAt: string
+    updatedAt: string
+    publishedAt: string
+    revisedAt: string
+    title: string
+    body: string
+    tags: string[]
+  }[]
+  totalCount: number
+  offset: number
+  limit: number
+}
+
 export const getStaticPaths: GetStaticPaths = async () => {
-  const paths = getAllPostIds()
+  const postsData: PostData = await client.get({ endpoint: 'blogs' })
+  const paths = postsData.contents.map((content) => `/posts/${content.id}`)
+
   return {
     paths,
     fallback: false,
@@ -41,7 +73,12 @@ export const getStaticPaths: GetStaticPaths = async () => {
 }
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
-  const postData = await getPostData(params?.id as string)
+  const id = params?.id as string | undefined
+  const postData: PostData = await client.get({
+    endpoint: 'blogs',
+    contentId: id,
+  })
+
   return {
     props: {
       postData,
