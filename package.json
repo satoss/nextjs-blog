@@ -14,10 +14,10 @@
   },
   "lint-staged": {
     "*.{ts,tsx}": [
-      "eslint"
+      "eslint --fix"
     ],
     "*.{css,scss}": [
-      "stylelint"
+      "stylelint --fix"
     ]
   },
   "dependencies": {

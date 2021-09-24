@@ -40,7 +40,10 @@ export const Post: React.FC<PostProps> = ({ postData }) => {
         </p>
 
         <br />
-        <div dangerouslySetInnerHTML={{ __html: postData.body }} />
+        <div
+          className={styles.contents}
+          dangerouslySetInnerHTML={{ __html: postData.body }}
+        />
       </article>
     </Layout>
   )
