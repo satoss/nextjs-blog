@@ -22,3 +22,17 @@
     margin-right: 2rem;
   }
 }
+
+.contents {
+  font-size: $font-size-lg;
+}
+
+@media screen and (max-width: 959px) {
+  .heading {
+    font-size: $font-size-xl;
+  }
+
+  .contents {
+    font-size: $font-size-sm;
+  }
+}

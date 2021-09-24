@@ -10,7 +10,7 @@ type LayoutProps = {
   home?: boolean
 }
 
-const Layout: React.FC<LayoutProps> = ({ children, home }) => {
+const Layout: React.FC<LayoutProps> = ({ children }) => {
   return (
     <div className={styles.container}>
       <Head>
@@ -27,6 +27,7 @@ const Layout: React.FC<LayoutProps> = ({ children, home }) => {
         />
         <meta name="og:title" content={siteTitle} />
         <meta name="twitter:card" content="summary_large_image" />
+        <meta name="viewport" content="width=device-width,initial-scale=1.0" />
       </Head>
       <header className={styles.header}>
         <Link href="/">
@@ -41,13 +42,17 @@ const Layout: React.FC<LayoutProps> = ({ children, home }) => {
         <div className={styles.sidenav}>
           <div className={styles.profile}>
             <h6>プロフィール</h6>
-            <img src="/images/profile.jpeg" alt="プロフィール画像" />
-            <p className={styles.name}>しょうえい</p>
-            <p className={styles.description}>
-              フリーランスエンジニアのしょうえいです。
-              <br />
-              主にフロントエンド周りの技術について備忘録も兼ねて書き留めていく予定です。
-            </p>
+            <div className={styles.profileWrap}>
+              <div className={styles.leftItem}>
+                <img src="/images/profile.jpeg" alt="プロフィール画像" />
+                <p className={styles.name}>しょうえい</p>
+              </div>
+              <p className={styles.description}>
+                フリーランスエンジニアのしょうえいです。
+                <br />
+                主にフロントエンド周りの技術について備忘録も兼ねて書き留めていく予定です。
+              </p>
+            </div>
           </div>
         </div>
       </main>
