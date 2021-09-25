@@ -1,9 +1,9 @@
-import Layout from '../../components/layout'
+import { GetStaticProps, GetStaticPaths } from 'next'
 import Head from 'next/head'
 import Date from '../../components/date'
-import styles from './[id].module.scss'
-import { GetStaticProps, GetStaticPaths } from 'next'
+import Layout from '../../components/layout'
 import { client } from '../../lib/client'
+import styles from './[id].module.scss'
 
 type PostProps = {
   postData: {
@@ -20,7 +20,7 @@ type PostProps = {
 
 export const Post: React.FC<PostProps> = ({ postData }) => {
   return (
-    <Layout>
+    <Layout title={postData.title}>
       <Head>
         <title>{postData.title}</title>
       </Head>

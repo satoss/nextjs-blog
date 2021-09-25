@@ -1,10 +1,10 @@
+import { GetStaticProps } from 'next'
 import Head from 'next/head'
+import Link from 'next/link'
+import Date from '../components/date'
+import { client } from '../lib/client'
 import Layout, { siteTitle } from '../components/layout'
 import styles from '../styles/pages/home.module.scss'
-import Link from 'next/link'
-import { client } from '../lib/client'
-import Date from '../components/date'
-import { GetStaticProps } from 'next'
 
 type Blogs = {
   id: string
