@@ -1,0 +1,56 @@
+@import '../styles/setting.scss';
+
+.breadcrumb {
+  display: flex;
+  justify-content: flex-start;
+  width: 85%;
+  max-width: 1160px;
+  padding: 0;
+  margin: 2rem auto -1rem;
+  font-size: $font-size-sm;
+  list-style: none;
+
+  .item {
+    display: flex;
+
+    .link {
+      margin-right: 1.4rem;
+    }
+
+    .icon {
+      width: 1rem;
+      height: auto;
+      margin-right: 1.4rem;
+    }
+  }
+
+  .item:last-child {
+    display: block;
+    margin-right: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+}
+
+@media screen and (max-width: 959px) {
+  .breadcrumb {
+    width: 70%;
+  }
+}
+
+@media screen and (max-width: 519px) {
+  .breadcrumb {
+    width: 80%;
+
+    .item {
+      .link {
+        margin-right: 1rem;
+
+        .icon {
+          margin-right: 1rem;
+        }
+      }
+    }
+  }
+}

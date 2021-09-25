@@ -1,16 +1,18 @@
-import Head from 'next/head'
-import styles from './layout.module.scss'
-import Link from 'next/link'
 import React from 'react'
+import Head from 'next/head'
+import Link from 'next/link'
+import BreadCrumb from './breadcrumb'
+import styles from './layout.module.scss'
 
 export const siteTitle = 'Next.js Sample Website'
 
 type LayoutProps = {
   children: React.ReactNode
+  title?: string
   home?: boolean
 }
 
-const Layout: React.FC<LayoutProps> = ({ children }) => {
+const Layout: React.FC<LayoutProps> = ({ children, title, home }) => {
   return (
     <div className={styles.container}>
       <Head>
@@ -37,6 +39,19 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
         </Link>
         <p>フロントエンドエンジニアの技術ブログ</p>
       </header>
+      {!home && (
+        <BreadCrumb
+          list={[
+            {
+              text: 'HOME',
+              path: '/',
+            },
+            {
+              text: title!,
+            },
+          ]}
+        />
+      )}
       <main className={styles.main}>
         <article className={styles.article}>{children}</article>
         <div className={styles.sidenav}>
