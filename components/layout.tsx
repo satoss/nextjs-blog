@@ -4,7 +4,7 @@ import Link from 'next/link'
 import BreadCrumb from './breadcrumb'
 import styles from './layout.module.scss'
 
-export const siteTitle = 'Next.js Sample Website'
+export const siteTitle = 'fe-life'
 
 type LayoutProps = {
   children: React.ReactNode
@@ -17,18 +17,6 @@ const Layout: React.FC<LayoutProps> = ({ children, title, home }) => {
     <div className={styles.container}>
       <Head>
         <link rel="icon" href="/favicon.ico" />
-        <meta
-          name="description"
-          content="Learn how to build a personal website using Next.js"
-        />
-        <meta
-          property="og:image"
-          content={`https://og-image.now.sh/${encodeURI(
-            siteTitle
-          )}.png?theme=light&md=0&fontSize=75px&images=https%3A%2F%2Fassets.zeit.co%2Fimage%2Fupload%2Ffront%2Fassets%2Fdesign%2Fnextjs-black-logo.svg`}
-        />
-        <meta name="og:title" content={siteTitle} />
-        <meta name="twitter:card" content="summary_large_image" />
         <meta name="viewport" content="width=device-width,initial-scale=1.0" />
       </Head>
       <header className={styles.header}>
