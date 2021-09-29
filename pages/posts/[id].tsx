@@ -24,8 +24,8 @@ export const Post: React.FC<PostProps> = ({ postData }) => {
       <Head>
         <title>{postData.title}</title>
       </Head>
-      <article>
-        <h1 className={styles.heading}>{postData.title}</h1>
+      <article className={styles.container}>
+        <h1>{postData.title}</h1>
         <p className={styles.dates}>
           <span>
             <img src="/images/createdAt.svg" width="16" height="16" />
