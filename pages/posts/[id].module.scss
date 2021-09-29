@@ -1,38 +1,64 @@
 @import '../../styles/setting.scss';
+@import '../../styles/color.scss';
 
-.heading {
-  margin: 0.8rem 0;
-  font-size: $font-size-4xl;
-}
+.container {
+  h1 {
+    margin: 0.8rem 0;
+    font-size: $font-size-4xl;
+  }
 
-.dates {
-  font-size: $font-size-sm;
+  h2 {
+    padding-left: 7px;
+    margin-top: 40px;
+    font-size: $font-size-3xl;
+    border-left: solid 3px $color-blue;
+  }
 
-  span {
-    display: inline-block;
+  h3 {
+    margin-top: 30px;
+    font-size: $font-size-2xl;
+    border-bottom: solid 1px $color-light-gray2;
+  }
 
-    img {
+  .dates {
+    font-size: $font-size-sm;
+
+    span {
       display: inline-block;
-      margin-right: 4px;
-      vertical-align: middle;
+
+      img {
+        display: inline-block;
+        margin-right: 4px;
+        vertical-align: middle;
+      }
+    }
+
+    span:first-child {
+      margin-right: 2rem;
     }
   }
 
-  span:first-child {
-    margin-right: 2rem;
+  .contents {
+    font-size: $font-size-lg;
   }
-}
-
-.contents {
-  font-size: $font-size-lg;
 }
 
 @media screen and (max-width: 959px) {
-  .heading {
-    font-size: $font-size-xl;
-  }
+  .container {
+    h1 {
+      font-size: $font-size-xl;
+    }
 
-  .contents {
-    font-size: $font-size-sm;
+    h2 {
+      font-size: $font-size-lg;
+    }
+
+    h3 {
+      font-size: $font-size-md;
+    }
+
+    .contents {
+      font-size: $font-size-sm;
+    }
   }
 }
