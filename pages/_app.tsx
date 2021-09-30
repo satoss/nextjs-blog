@@ -1,9 +1,17 @@
+import { AppProps } from 'next/app'
 import 'normalize.css'
-import { AppPropsType } from 'next/dist/next-server/lib/utils'
 import '../styles/global.scss'
+import { usePageView, GoogleAnalytics } from '../lib/gtag'
 
-const App = ({ Component, pageProps }: AppPropsType): JSX.Element => {
-  return <Component {...pageProps} />
+const App = ({ Component, pageProps }: AppProps): JSX.Element => {
+  usePageView()
+
+  return (
+    <>
+      <GoogleAnalytics />
+      <Component {...pageProps} />
+    </>
+  )
 }
 
 export default App
