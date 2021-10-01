@@ -1,5 +1,8 @@
 import { GetStaticProps, GetStaticPaths } from 'next'
 import Head from 'next/head'
+import cheerio from 'cheerio'
+import hljs from 'highlight.js'
+import 'highlight.js/styles/foundation.css'
 import Date from '../../components/date'
 import Layout from '../../components/layout'
 import { client } from '../../lib/client'
@@ -49,7 +52,7 @@ export const Post: React.FC<PostProps> = ({ postData }) => {
   )
 }
 
-type PostData = {
+type PostsData = {
   contents: {
     id: string
     createdAt: string
@@ -66,7 +69,7 @@ type PostData = {
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const postsData: PostData = await client.get({ endpoint: 'blogs' })
+  const postsData: PostsData = await client.get({ endpoint: 'blogs' })
   const paths = postsData.contents.map((content) => `/posts/${content.id}`)
 
   return {
@@ -75,12 +78,31 @@ export const getStaticPaths: GetStaticPaths = async () => {
   }
 }
 
+type PostData = {
+  id: string
+  createdAt: string
+  updatedAt: string
+  publishedAt: string
+  revisedAt: string
+  title: string
+  body: string
+  tags: string[]
+}
+
 export const getStaticProps: GetStaticProps = async ({ params }) => {
   const id = params?.id as string | undefined
   const postData: PostData = await client.get({
     endpoint: 'blogs',
     contentId: id,
   })
+
+  const $ = cheerio.load(postData.body)
+  $('pre code').each((_, elm) => {
+    const result = hljs.highlightAuto($(elm).text())
+    $(elm).html(result.value)
+    $(elm).addClass('hljs')
+  })
+  postData.body = $.html()
 
   return {
     props: {
