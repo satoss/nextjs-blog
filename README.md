@@ -22,6 +22,7 @@
 * ぱんくずリスト
 * Google Analitics
 * シンタックスハイライト
+* PWA
 
 ## 使用法
 ```consosle
@@ -31,8 +32,4 @@ npm i
 # ローカルサーバーの立ち上げ
 npm run dev
 ```
-以下のURLからローカル環境での確認を行う。
-
-http://localhost:3000/
-
 
