@@ -1,13 +1,12 @@
 {
-	"name":				"fe-life",
-	"short_name":		"fe-life",
-	"description":		"",
-	"start_url":		"/",
-	"display":			"standalone",
-	"orientation":		"any",
+	"name": "fe-life",
+	"short_name": "fe-life",
+	"description": "",
+	"start_url": "/?mode=pwa",
+	"display": "standalone",
+	"orientation": "any",
 	"background_color":	"#fff",
-	"theme_color":		"#fff",
-	"orientation":		"any",
+	"theme_color": "#fff",
 	"icons": [
 		{
 			"src": "/android-chrome-36x36.png",
