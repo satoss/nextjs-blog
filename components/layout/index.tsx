@@ -1,8 +1,9 @@
 import React from 'react'
 import Head from 'next/head'
 import Link from 'next/link'
-import BreadCrumb from './breadcrumb'
-import styles from './layout.module.scss'
+import Image from 'next/image'
+import BreadCrumb from '../breadcrumb'
+import styles from './styles.module.scss'
 
 export const siteTitle = 'fe-life'
 
@@ -47,7 +48,14 @@ const Layout: React.FC<LayoutProps> = ({ children, title, home }) => {
             <h6>プロフィール</h6>
             <div className={styles.profileWrap}>
               <div className={styles.leftItem}>
-                <img src="/images/profile.jpeg" alt="プロフィール画像" />
+                <div className={styles.profileImg}>
+                  <Image
+                    src="/images/profile.jpeg"
+                    width={80}
+                    height={80}
+                    alt="プロフィール画像"
+                  />
+                </div>
                 <p className={styles.name}>しょうえい</p>
               </div>
               <p className={styles.description}>

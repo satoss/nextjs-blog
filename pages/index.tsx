@@ -1,6 +1,7 @@
 import { GetStaticProps } from 'next'
 import Head from 'next/head'
 import Link from 'next/link'
+import Image from 'next/image'
 import Date from '../components/date'
 import { client } from '../lib/client'
 import Layout, { siteTitle } from '../components/layout'
@@ -26,18 +27,34 @@ export const Home = ({ blogs }: { blogs: Blogs[] }): JSX.Element => {
               <Link href={`/posts/${blog.id}`}>
                 <a className={styles.title}>{blog.title}</a>
               </Link>
-              <p className={styles.dates}>
+              <div className={styles.dates}>
                 <span>
-                  <img src="/images/createdAt.svg" width="16" height="16" />
-                  投稿：
-                  <Date dateString={blog.createdAt} />
+                  <Image
+                    className={styles.img}
+                    src="/images/createdAt.svg"
+                    width={16}
+                    height={16}
+                    alt="投稿日"
+                  />
+                  <span className={styles.text}>
+                    投稿：
+                    <Date dateString={blog.createdAt} />
+                  </span>
                 </span>
                 <span>
-                  <img src="/images/updatedAt.svg" width="14" height="14" />
-                  更新：
-                  <Date dateString={blog.updatedAt} />
+                  <Image
+                    className={styles.img}
+                    src="/images/updatedAt.svg"
+                    width={14}
+                    height={14}
+                    alt="更新日"
+                  />
+                  <span className={styles.text}>
+                    更新：
+                    <Date dateString={blog.updatedAt} />
+                  </span>
                 </span>
-              </p>
+              </div>
             </li>
           ))}
         </ul>

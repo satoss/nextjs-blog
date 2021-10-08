@@ -1,5 +1,5 @@
 import React from 'react'
-import styles from './breadcrumb.module.scss'
+import styles from './styles.module.scss'
 
 type BreadCrumbProps = {
   list: {
@@ -14,12 +14,9 @@ const BreadCrumb: React.FC<BreadCrumbProps> = ({ list }) => {
       {list.map(({ text, path }, index) => (
         <li key={index} className={styles.item}>
           {list.length - 1 !== index ? (
-            <>
-              <a href={path} className={styles.link}>
-                {text}
-              </a>
-              <img src="/images/rightArrow.svg" className={styles.icon} />
-            </>
+            <a href={path} className={styles.link}>
+              {text}
+            </a>
           ) : (
             <span>{text}</span>
           )}
