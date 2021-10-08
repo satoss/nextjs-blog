@@ -1,4 +1,4 @@
-@import '../styles/setting.scss';
+@import '../../styles/setting.scss';
 
 .breadcrumb {
   display: flex;
@@ -13,14 +13,9 @@
   .item {
     display: flex;
 
-    .link {
-      margin-right: 1.4rem;
-    }
-
-    .icon {
-      width: 1rem;
-      height: auto;
-      margin-right: 1.4rem;
+    .link::after {
+      padding: 0 7px;
+      content: '>';
     }
   }
 
@@ -42,15 +37,5 @@
 @media screen and (max-width: 519px) {
   .breadcrumb {
     width: 80%;
-
-    .item {
-      .link {
-        margin-right: 1rem;
-
-        .icon {
-          margin-right: 1rem;
-        }
-      }
-    }
   }
 }

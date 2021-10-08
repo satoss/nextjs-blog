@@ -1,5 +1,5 @@
-@import '../styles/setting.scss';
-@import '../styles/color.scss';
+@import '../../styles/setting.scss';
+@import '../../styles/color.scss';
 
 .container {
   position: relative;
@@ -38,7 +38,7 @@
 }
 
 .article {
-  width: 100%;
+  width: 65%;
   padding: 3rem;
   background: #fff;
   border-bottom: 1px solid $color-light-gray;
@@ -48,6 +48,7 @@
 .sidenav {
   display: flex;
   flex-direction: column;
+  width: 300px;
 
   & h6 {
     margin: 1rem 0;
@@ -61,7 +62,11 @@
   border-bottom: 1px solid $color-light-gray;
   border-radius: 20px;
 
-  img {
+  .leftItem {
+    text-align: center;
+  }
+
+  .profileImg {
     width: 8rem;
     height: auto;
     margin: 0 auto;
@@ -111,6 +116,10 @@
     width: 70%;
   }
 
+  .article {
+    width: 100%;
+  }
+
   .sidenav {
     width: 100%;
   }
@@ -125,7 +134,7 @@
       min-width: 105px;
     }
 
-    img {
+    .profileImg {
       width: 5.8rem;
     }
 

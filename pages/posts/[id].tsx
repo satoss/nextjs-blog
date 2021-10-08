@@ -1,5 +1,6 @@
 import { GetStaticProps, GetStaticPaths } from 'next'
 import Head from 'next/head'
+import Image from 'next/image'
 import cheerio from 'cheerio'
 import hljs from 'highlight.js'
 import 'highlight.js/styles/foundation.css'
@@ -27,27 +28,43 @@ export const Post: React.FC<PostProps> = ({ postData }) => {
       <Head>
         <title>{postData.title}</title>
       </Head>
-      <article className={styles.container}>
+      <div className={styles.container}>
         <h1>{postData.title}</h1>
-        <p className={styles.dates}>
+        <div className={styles.dates}>
           <span>
-            <img src="/images/createdAt.svg" width="16" height="16" />
-            投稿：
-            <Date dateString={postData.createdAt} />
+            <Image
+              className={styles.img}
+              src="/images/createdAt.svg"
+              width="16"
+              height="16"
+              alt="投稿日"
+            />
+            <span className={styles.text}>
+              投稿：
+              <Date dateString={postData.createdAt} />
+            </span>
           </span>
           <span>
-            <img src="/images/updatedAt.svg" width="14" height="14" />
-            更新：
-            <Date dateString={postData.updatedAt} />
+            <Image
+              className={styles.img}
+              src="/images/updatedAt.svg"
+              width="14"
+              height="14"
+              alt="更新日"
+            />
+            <span className={styles.text}>
+              更新：
+              <Date dateString={postData.updatedAt} />
+            </span>
           </span>
-        </p>
+        </div>
 
         <br />
         <div
           className={styles.contents}
           dangerouslySetInnerHTML={{ __html: postData.body }}
         />
-      </article>
+      </div>
     </Layout>
   )
 }

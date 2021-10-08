@@ -21,15 +21,16 @@
   }
 
   .dates {
+    margin: 1.4rem 0;
     font-size: $font-size-sm;
 
     span {
       display: inline-block;
+      vertical-align: baseline;
 
-      img {
-        display: inline-block;
-        margin-right: 4px;
-        vertical-align: middle;
+      .text {
+        margin-left: 4px;
+        vertical-align: text-bottom;
       }
     }
 
@@ -59,6 +60,15 @@
 
     .contents {
       font-size: $font-size-sm;
+    }
+
+    .dates {
+      margin: 0.5rem 0;
+      font-size: $font-size-xxs;
+
+      .img {
+        transform: translateY(2px) scale(0.8);
+      }
     }
   }
 }
