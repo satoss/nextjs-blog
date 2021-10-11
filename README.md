@@ -1,6 +1,6 @@
 # fe-life
 
-[fe-life](https://nextjs-blog-satoss.vercel.app/)は技術情報などを発信していくブログです。
+[fe-life](https://nextjs-blog-beige-two-20.vercel.app/)は技術情報などを発信していくブログです。
 
 
 ## 使用技術
