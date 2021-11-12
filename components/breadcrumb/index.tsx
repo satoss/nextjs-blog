@@ -1,7 +1,7 @@
 import React from 'react'
 import styles from './styles.module.scss'
 
-type BreadCrumbProps = {
+export type BreadCrumbProps = {
   list: {
     text: string
     path?: string

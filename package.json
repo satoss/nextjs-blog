@@ -10,7 +10,9 @@
     "lint:ts": "eslint .",
     "lint:scss": "stylelint ./**/*.scss",
     "precommit": "lint-staged",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
   },
   "lint-staged": {
     "*.{ts,tsx}": [
@@ -34,11 +36,17 @@
     "react-dom": "17.0.1"
   },
   "devDependencies": {
+    "@babel/core": "^7.16.0",
+    "@storybook/addon-actions": "^6.3.12",
+    "@storybook/addon-essentials": "^6.3.12",
+    "@storybook/addon-links": "^6.3.12",
+    "@storybook/react": "^6.3.12",
     "@types/gtag.js": "0.0.7",
     "@types/node": "^15.6.1",
     "@types/react": "^17.0.8",
     "@typescript-eslint/eslint-plugin": "^4.28.5",
     "@typescript-eslint/parser": "^4.28.5",
+    "babel-loader": "^8.2.3",
     "eslint": "^7.31.0",
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-prettier": "^3.4.0",
@@ -46,6 +54,7 @@
     "lint-staged": "^11.1.1",
     "prettier": "^2.3.2",
     "sass": "^1.36.0",
+    "sass-loader": "^10.2.0",
     "stylelint": "^13.13.1",
     "stylelint-config-recess-order": "^2.4.0",
     "stylelint-config-standard": "^22.0.0",
