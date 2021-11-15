@@ -14,3 +14,13 @@ export const Default = Template.bind({})
 Default.args = {
   list: [{ text: 'HOME', path: '/' }, { text: 'storybookのサンプル' }],
 }
+
+export const Longer = Template.bind({})
+Longer.args = {
+  list: [
+    { text: 'HOME', path: '/' },
+    {
+      text: 'storybookのサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプル',
+    },
+  ],
+}

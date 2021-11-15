@@ -9,7 +9,6 @@ module.exports = {
     "@storybook/addon-essentials"
   ],
   webpackFinal: async (baseConfig) => {
-    // scss を読み込む
     baseConfig.module.rules.push({
       test: /\.scss$/,
       use: [
@@ -17,7 +16,7 @@ module.exports = {
         {
           loader: 'css-loader',
           options: {
-            importLoaders: 1, // 1 => postcss-loader
+            importLoaders: 1,
             modules: {
               localIdentName: '[local]___[hash:base64:2]',
             },

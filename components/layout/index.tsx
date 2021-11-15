@@ -7,7 +7,7 @@ import styles from './styles.module.scss'
 
 export const siteTitle = 'fe-life'
 
-type LayoutProps = {
+export type LayoutProps = {
   children: React.ReactNode
   title?: string
   home?: boolean
